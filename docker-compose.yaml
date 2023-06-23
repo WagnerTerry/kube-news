@@ -1,0 +1,36 @@
+version: '3.8'
+
+volumes:
+  postgres-vol:
+
+
+networks:
+  kube-news-net:
+    driver: bridge
+
+services:
+  web:
+    image: wagnerterry/kube-news:v1
+    ports:
+      - 8080:8080
+    networks:
+      - kube-news-net
+    depends_on:
+      - postgres
+    environment:
+      DB_DATABASE: kubenews
+      DB_USERNAME: kubenews
+      DB_PASSWORD: root
+      DB_HOST: postgres
+  postgres:
+    image: postgres
+    ports:
+      - 5432:5432
+    networks:
+      - kube-news-net
+    volumes:
+      - postgres-vol:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: kubenews
+      POSTGRES_DB: kubenews
