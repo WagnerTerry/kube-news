@@ -27,7 +27,7 @@ DB_HOST => Endereço do banco de dados.
  - docker logs <id container> -> log do container
  - docker container -rm -f <id container> -> remover um container
  - docker container run -d -p 5432:5432 -e POSTGRES_PASSWORD=root -e POSTGRES_USER=kubenews -e POSTGRES_DB=kubenews postgres -> Cria um container com a imagem do postgres e adiciona as variaveis de ambiente
- - docker image prune -> remover container/lixos
+ - docker image prune -> remover container/lixos sem nome
  - docker tag <nome do repositorio> <nome de usuario no docker hub>/tag - tag-versão. Ex: docker tag kube-news fabricioteste/kube-news:v1 -> Renomear uma imagem para subir no docker hub
  - docker login -> Autenticação no docker hub
  - docker push <nome do repositorio>:<tag> -> Sobe para o docker hub o container criado. Ex. docker push fabricioteste/kube-news:v1
