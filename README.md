@@ -48,3 +48,11 @@ DB_HOST => Endereço do banco de dados.
 
  ## Docker Compose
  - É para criar container
+
+ ## Exemplo de criação de uma imagem usando Dockerfile
+ FROM ubuntu
+ RUN apt update
+ RUN apt install curl -y
+
+ comando: docker build -t ubuntu-curl -f Dockerfile
+ nome da imagem: ubuntu-curl
